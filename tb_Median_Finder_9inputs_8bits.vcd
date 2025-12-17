@@ -1,0 +1,445 @@
+$date
+	Wed Dec 17 22:31:34 2025
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ps
+$end
+$scope module tb_Median_Finder_9inputs_8bits $end
+$var wire 8 ! median_pixel [7:0] $end
+$var reg 8 " pixel0 [7:0] $end
+$var reg 8 # pixel1 [7:0] $end
+$var reg 8 $ pixel2 [7:0] $end
+$var reg 8 % pixel3 [7:0] $end
+$var reg 8 & pixel4 [7:0] $end
+$var reg 8 ' pixel5 [7:0] $end
+$var reg 8 ( pixel6 [7:0] $end
+$var reg 8 ) pixel7 [7:0] $end
+$var reg 8 * pixel8 [7:0] $end
+$scope module utt $end
+$var wire 8 + pixel0 [7:0] $end
+$var wire 8 , pixel1 [7:0] $end
+$var wire 8 - pixel2 [7:0] $end
+$var wire 8 . pixel3 [7:0] $end
+$var wire 8 / pixel4 [7:0] $end
+$var wire 8 0 pixel5 [7:0] $end
+$var wire 8 1 pixel6 [7:0] $end
+$var wire 8 2 pixel7 [7:0] $end
+$var wire 8 3 pixel8 [7:0] $end
+$var wire 8 4 min_col2 [7:0] $end
+$var wire 8 5 min2 [7:0] $end
+$var wire 8 6 min1 [7:0] $end
+$var wire 8 7 min0 [7:0] $end
+$var wire 8 8 mid_col1 [7:0] $end
+$var wire 8 9 mid2 [7:0] $end
+$var wire 8 : mid1 [7:0] $end
+$var wire 8 ; mid0 [7:0] $end
+$var wire 8 < median_pixel [7:0] $end
+$var wire 8 = max_col0 [7:0] $end
+$var wire 8 > max2 [7:0] $end
+$var wire 8 ? max1 [7:0] $end
+$var wire 8 @ max0 [7:0] $end
+$scope module FindMax $end
+$var wire 8 A in2 [7:0] $end
+$var wire 8 B in1 [7:0] $end
+$var wire 8 C in0 [7:0] $end
+$var reg 8 D max [7:0] $end
+$var reg 8 E mid [7:0] $end
+$var reg 8 F min [7:0] $end
+$upscope $end
+$scope module FindMedian $end
+$var wire 8 G in0 [7:0] $end
+$var wire 8 H in2 [7:0] $end
+$var wire 8 I in1 [7:0] $end
+$var reg 8 J max [7:0] $end
+$var reg 8 K mid [7:0] $end
+$var reg 8 L min [7:0] $end
+$upscope $end
+$scope module FindMid $end
+$var wire 8 M in2 [7:0] $end
+$var wire 8 N in1 [7:0] $end
+$var wire 8 O in0 [7:0] $end
+$var reg 8 P max [7:0] $end
+$var reg 8 Q mid [7:0] $end
+$var reg 8 R min [7:0] $end
+$upscope $end
+$scope module FindMin $end
+$var wire 8 S in2 [7:0] $end
+$var wire 8 T in1 [7:0] $end
+$var wire 8 U in0 [7:0] $end
+$var reg 8 V max [7:0] $end
+$var reg 8 W mid [7:0] $end
+$var reg 8 X min [7:0] $end
+$upscope $end
+$scope module Row0 $end
+$var wire 8 Y in0 [7:0] $end
+$var wire 8 Z in1 [7:0] $end
+$var wire 8 [ in2 [7:0] $end
+$var reg 8 \ max [7:0] $end
+$var reg 8 ] mid [7:0] $end
+$var reg 8 ^ min [7:0] $end
+$upscope $end
+$scope module Row1 $end
+$var wire 8 _ in0 [7:0] $end
+$var wire 8 ` in1 [7:0] $end
+$var wire 8 a in2 [7:0] $end
+$var reg 8 b max [7:0] $end
+$var reg 8 c mid [7:0] $end
+$var reg 8 d min [7:0] $end
+$upscope $end
+$scope module Row2 $end
+$var wire 8 e in0 [7:0] $end
+$var wire 8 f in1 [7:0] $end
+$var wire 8 g in2 [7:0] $end
+$var reg 8 h max [7:0] $end
+$var reg 8 i mid [7:0] $end
+$var reg 8 j min [7:0] $end
+$upscope $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+$comment Show the parameter values. $end
+$dumpall
+$end
+#0
+$dumpvars
+b1 j
+b10 i
+b11 h
+b11 g
+b10 f
+b1 e
+b1 d
+b10 c
+b11 b
+b11 a
+b10 `
+b1 _
+b1 ^
+b10 ]
+b11 \
+b11 [
+b10 Z
+b1 Y
+b11 X
+b11 W
+b11 V
+b11 U
+b11 T
+b11 S
+b10 R
+b10 Q
+b10 P
+b10 O
+b10 N
+b10 M
+b1 L
+b10 K
+b11 J
+b10 I
+b11 H
+b1 G
+b1 F
+b1 E
+b1 D
+b1 C
+b1 B
+b1 A
+b11 @
+b11 ?
+b11 >
+b1 =
+b10 <
+b10 ;
+b10 :
+b10 9
+b10 8
+b1 7
+b1 6
+b1 5
+b11 4
+b11 3
+b10 2
+b1 1
+b11 0
+b10 /
+b1 .
+b11 -
+b10 ,
+b1 +
+b11 *
+b10 )
+b1 (
+b11 '
+b10 &
+b1 %
+b11 $
+b10 #
+b1 "
+b10 !
+$end
+#100000
+b1 !
+b1 <
+b1 K
+b1 J
+b1 8
+b1 I
+b1 Q
+b1 P
+b1 R
+b1 W
+b1 V
+b1 4
+b1 H
+b1 X
+b1 9
+b1 M
+b1 i
+b1 >
+b1 S
+b1 h
+b1 :
+b1 N
+b1 c
+b1 ?
+b1 T
+b1 b
+b1 ;
+b1 O
+b1 ]
+b1 @
+b1 U
+b1 \
+b1 *
+b1 3
+b1 g
+b1 )
+b1 2
+b1 f
+b1 '
+b1 0
+b1 a
+b1 &
+b1 /
+b1 `
+b1 $
+b1 -
+b1 [
+b1 #
+b1 ,
+b1 Z
+#200000
+b101 !
+b101 <
+b101 K
+b111 J
+b11 L
+b100 E
+b111 =
+b111 D
+b111 G
+b101 8
+b101 I
+b101 Q
+b1000 P
+b10 R
+b110 W
+b1001 V
+b11 4
+b11 H
+b11 X
+b1000 9
+b1000 M
+b1000 i
+b1001 >
+b1001 S
+b1001 h
+b111 5
+b111 A
+b111 j
+b101 :
+b101 N
+b101 c
+b110 ?
+b110 T
+b110 b
+b100 6
+b100 B
+b100 d
+b10 ;
+b10 O
+b10 ]
+b11 @
+b11 U
+b11 \
+b1001 *
+b1001 3
+b1001 g
+b1000 )
+b1000 2
+b1000 f
+b111 (
+b111 1
+b111 e
+b110 '
+b110 0
+b110 a
+b101 &
+b101 /
+b101 `
+b100 %
+b100 .
+b100 _
+b11 $
+b11 -
+b11 [
+b10 #
+b10 ,
+b10 Z
+#300000
+b10010 !
+b10010 <
+b10010 K
+b11001 J
+b1000 L
+b10010 8
+b10010 I
+b10010 Q
+b10110 P
+b1100 R
+b11011 W
+b100100 V
+b11001 4
+b11001 H
+b11001 X
+b101 E
+b1000 =
+b1000 D
+b1000 G
+b10 F
+b10110 9
+b10110 M
+b10110 i
+b11001 >
+b11001 S
+b11001 h
+b1000 5
+b1000 A
+b1000 j
+b10010 :
+b10010 N
+b10010 c
+b11011 ?
+b11011 T
+b11011 b
+b101 6
+b101 B
+b101 d
+b1100 ;
+b1100 O
+b1100 ]
+b100100 @
+b100100 U
+b100100 \
+b10 7
+b10 C
+b10 ^
+b10110 *
+b10110 3
+b10110 g
+b11001 )
+b11001 2
+b11001 f
+b1000 (
+b1000 1
+b1000 e
+b10010 '
+b10010 0
+b10010 a
+b11011 &
+b11011 /
+b11011 `
+b101 %
+b101 .
+b101 _
+b100100 $
+b100100 -
+b100100 [
+b1100 #
+b1100 ,
+b1100 Z
+b10 "
+b10 +
+b10 Y
+#400000
+b1100 !
+b1100 <
+b1100 K
+b1111 J
+b1001 L
+b1111 8
+b1111 I
+b1111 Q
+b10010 P
+b10100 W
+b11001 V
+b1100 4
+b1100 H
+b1100 X
+b110 E
+b1001 =
+b1001 D
+b1001 G
+b11 F
+b1111 9
+b1111 M
+b1111 i
+b1001 5
+b1001 A
+b1001 j
+b1100 :
+b1100 N
+b1100 c
+b1100 ?
+b1100 T
+b1100 b
+b110 6
+b110 B
+b110 d
+b10010 ;
+b10010 O
+b10010 ]
+b10100 @
+b10100 U
+b10100 \
+b11 7
+b11 C
+b11 ^
+b1001 *
+b1001 3
+b1001 g
+b1111 (
+b1111 1
+b1111 e
+b110 '
+b110 0
+b110 a
+b1100 &
+b1100 /
+b1100 `
+b1100 %
+b1100 .
+b1100 _
+b11 $
+b11 -
+b11 [
+b10100 #
+b10100 ,
+b10100 Z
+b10010 "
+b10010 +
+b10010 Y
+#500000
