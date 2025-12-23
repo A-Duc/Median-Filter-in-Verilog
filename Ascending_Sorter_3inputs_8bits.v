@@ -8,38 +8,47 @@ module Ascending_Sorter_3inputs_8bits(min, mid, max,
     input   wire [7:0]  in0, in1, in2;
     output  reg  [7:0]  min, mid, max;
 
-    //reg     [7:0] st0_buf[2:0]; // [0] <- max, [1] <- min, [2] <- in2
-
-    wire    [7:0] wC0_Max, wC0_Min;
-    wire    [7:0] wC1_Max, wC1_Min;
-    wire    [7:0] wC2_Max, wC2_Min;
-
-    reg     [7:0] State0_Buf[2:0];
-    reg     [7:0] State1_Buf[2:0];
-
-
-
-    Comparator_8bits C0(.Max(wC0_Max), .Min(wC0_Min),
-                        .A(in0), .B(in1));
-
-    Comparator_8bits C1(.Max(wC1_Max), .Min(wC1_Min),
-                        .A(State0_Buf[0]), .B(State0_Buf[2]));
-
-    Comparator_8bits C2(.Max(wC2_Max), .Min(wC2_Min),
-                        .A(State1_Buf[1]), .B(State1_Buf[2]));
+    reg [7:0] rin0, rin1, rin2;
+    reg [7:0] cmp0, cmp1, cmp2;  //0: in0 < in1?; 1:in1 < in2?; in0 < in2? 
 
     always @(posedge clk) begin
-        State0_Buf[0] <= wC0_Max;
-        State0_Buf[1] <= wC0_Min;
-        State0_Buf[2] <= in2;
+        //STAGE 0
+        rin0 <= in0;
+        rin1 <= in1;
+        rin2 <= in2;
 
-        State1_Buf[0] <= wC1_Max;
-        State1_Buf[1] <= wC1_Min;
-        State1_Buf[2] <= State0_Buf[1];
+        cmp0 <= (in0 < in1);
+        cmp1 <= (in1 < in2);
+        cmp2 <= (in0 < in2);
 
-        max <= State1_Buf[0];
-        mid <= wC2_Max;
-        min <= wC2_Min;
+        //STAGE 1
+
+        if (cmp0) begin
+            if (cmp2) min <= rin0;
+            else min <= rin2;
+
+            if (cmp1) begin
+                mid <= rin1;
+                max <= rin2;
+            end
+            else begin
+                mid <= rin2;
+                max <= rin1;
+            end
+        end
+        else begin
+            if (cmp1) min = rin1;
+            else min = rin2;
+
+            if (cmp2) begin
+                mid <= rin0;
+                max <= rin2;
+            end
+            else begin
+                mid <= rin2;
+                max <= rin0;
+            end
+        end
 
     end
 
