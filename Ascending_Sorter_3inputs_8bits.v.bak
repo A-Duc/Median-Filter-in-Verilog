@@ -1,0 +1,29 @@
+`include "Comparator_8bits.v"
+
+module Ascending_Sorter_3inputs_8bits(min, mid, max, 
+                                      in0, in1, in2);
+    
+    input       [7:0]  in0, in1, in2;
+    output      [7:0]  min, mid, max;
+
+    wire [7:0] C1_Max, C1_Min;
+    wire [7:0] temp;
+
+    // always @(*) begin
+    //     min = (in0 <= in1 && in0 <= in2) ? in0 : ((in1 <=in2) ? in1 : in2);
+    //     max = (in0 >= in1 && in0 >= in2) ? in0 : ((in1 >=in2) ? in1 : in2);
+    //     mid = in0 + in1 + in2 - max - min;
+    // end
+
+    Comparator_8bits C1(.Max(C1_Max), .Min(C1_Min), 
+                        .A(in0), .B(in1));
+
+    Comparator_8bits FindMax(.Max(max), .Min(temp),
+                             .A(C1_Max), .B(in2));
+
+    Comparator_8bits FindMin(.Min(min), .Max(mid),
+                             .A(C1_Min), .B(temp));
+
+    
+    
+endmodule
