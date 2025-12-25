@@ -26,7 +26,6 @@ module tb_Median_Finder_9inputs_8bits;
         $dumpfile("tb_Median_Finder_9inputs_8bits.vcd");
         $dumpvars(0, tb_Median_Finder_9inputs_8bits);
 
-        
         pixel0 = 8'd1; pixel1 = 8'd2; pixel2 = 8'd3;
         pixel3 = 8'd1; pixel4 = 8'd2; pixel5 = 8'd3;
         pixel6 = 8'd1; pixel7 = 8'd2; pixel8 = 8'd3;
@@ -76,7 +75,47 @@ module tb_Median_Finder_9inputs_8bits;
         pixel3 = 8'd75; pixel4 = 8'd25; pixel5 = 8'd85;
         pixel6 = 8'd55; pixel7 = 8'd65; pixel8 = 8'd35;
 
-        #50;
+        #10
+        pixel0 = 8'd128; pixel1 = 8'd128; pixel2 = 8'd128;
+        pixel3 = 8'd128; pixel4 = 8'd255; pixel5 = 8'd128;
+        pixel6 = 8'd128; pixel7 = 8'd128; pixel8 = 8'd128;
+
+        #10
+        pixel0 = 8'd200; pixel1 = 8'd200; pixel2 = 8'd200;
+        pixel3 = 8'd200; pixel4 = 8'd0;   pixel5 = 8'd200;
+        pixel6 = 8'd200; pixel7 = 8'd200; pixel8 = 8'd200;
+
+        #10
+        pixel0 = 8'd10;  pixel1 = 8'd10;  pixel2 = 8'd200;
+        pixel3 = 8'd10;  pixel4 = 8'd10;  pixel5 = 8'd200;
+        pixel6 = 8'd10;  pixel7 = 8'd10;  pixel8 = 8'd200;
+
+        #10
+        pixel0 = 8'd200; pixel1 = 8'd200; pixel2 = 8'd200;
+        pixel3 = 8'd200; pixel4 = 8'd200; pixel5 = 8'd200;
+        pixel6 = 8'd50;  pixel7 = 8'd50;  pixel8 = 8'd50;
+
+        #10
+        pixel0 = 8'd0;   pixel1 = 8'd255; pixel2 = 8'd0;
+        pixel3 = 8'd255; pixel4 = 8'd0;   pixel5 = 8'd255;
+        pixel6 = 8'd0;   pixel7 = 8'd255; pixel8 = 8'd0;
+
+        #10
+        pixel0 = 8'd90; pixel1 = 8'd80; pixel2 = 8'd70;
+        pixel3 = 8'd60; pixel4 = 8'd50; pixel5 = 8'd40;
+        pixel6 = 8'd30; pixel7 = 8'd20; pixel8 = 8'd10;
+
+        #10
+        pixel0 = 8'd200; pixel1 = 8'd5;   pixel2 = 8'd100;
+        pixel3 = 8'd5;   pixel4 = 8'd200; pixel5 = 8'd100;
+        pixel6 = 8'd100; pixel7 = 8'd200; pixel8 = 8'd5;
+
+        #10
+        pixel0 = 8'd0;   pixel1 = 8'd255; pixel2 = 8'd0;
+        pixel3 = 8'd255; pixel4 = 8'd254; pixel5 = 8'd0;
+        pixel6 = 8'd255; pixel7 = 8'd0;   pixel8 = 8'd255;
+
+        #150;
         $finish;
     end
 
