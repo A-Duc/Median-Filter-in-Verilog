@@ -1,4 +1,4 @@
-//`include "Ascending_Sorter_3inputs_8bits.v"
+`include "Ascending_Sorter_3inputs_8bits.v"
 
 module Median_Finder_9inputs_8bits(
     output wire [7:0] median_pixel,
@@ -58,35 +58,7 @@ module Median_Finder_9inputs_8bits(
         .clk(clk)
     );
 
-    // always @(posedge clk) begin
-    //     rmin0 <= wmin0;
-    //     rmid0 <= wmid0;
-    //     rmax0 <= wmax0;
-
-    //     rmin1 <= wmin1;
-    //     rmid1 <= wmid1;
-    //     rmax1 <= wmax1;
-
-    //     rmin2 <= wmin2;
-    //     rmid2 <= wmid2;
-    //     rmax2 <= wmax2;
-
-    //     rmax_col0 <= wmax_col0;
-    //     rmid_col1 <= wmid_col1;
-    //     rmin_col2 <= wmin_col2;
-    // end
-
-    
-    
-    // assign max_col0 = (rmin0 > rmin1) ? ((rmin0 > rmin2) ? rmin0 : rmin2) : ((rmin1 > rmin2) ? rmin1 : rmin2);
-
-    // assign mid_col1 = (rmid0 > rmid1) ? 
-    //              ((rmid1 > rmid2) ? rmid1 : ((rmid0 > rmid2) ? rmid2 : rmid0)) : 
-    //              ((rmid0 > rmid2) ? rmid0 : ((rmid1 > rmid2) ? rmid2 : rmid1));
-        
-    // assign min_col2 = (rmax0 < rmax1) ? ((rmax0 < rmax2) ? rmax0 : rmax2) : ((rmax1 < rmax2) ? rmax1 : rmax2);
-
-
+    //STAGE 2
     Ascending_Sorter_3inputs_8bits FindMedian(
         .mid(median_pixel),
         .in0(wmax_col0), .in1(wmid_col1), .in2(wmin_col2),
