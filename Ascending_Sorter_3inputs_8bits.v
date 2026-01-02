@@ -1,5 +1,5 @@
 module Ascending_Sorter_3inputs_8bits(
-    output reg [7:0] min, mid, max, 
+    output reg  [7:0] min, mid, max, 
     input  wire [7:0] in0, in1, in2,
     input  wire       clk,
     input  wire       reset,
