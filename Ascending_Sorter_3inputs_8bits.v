@@ -2,8 +2,7 @@ module Ascending_Sorter_3inputs_8bits(
     output reg  [7:0] min, mid, max, 
     input  wire [7:0] in0, in1, in2,
     input  wire       clk,
-    input  wire       reset,
-    input  wire       enable 
+    input  wire       reset
 );
     reg [7:0] rin0, rin1, rin2;
     reg       cmp0, cmp1, cmp2;
@@ -13,7 +12,8 @@ module Ascending_Sorter_3inputs_8bits(
             min <= 0; mid <= 0; max <= 0;
             rin0 <= 0; rin1 <= 0; rin2 <= 0;
             cmp0 <= 0; cmp1 <= 0; cmp2 <= 0;
-        end else if (enable) begin 
+        end else begin 
+            
             rin0 <= in0;
             rin1 <= in1;
             rin2 <= in2;

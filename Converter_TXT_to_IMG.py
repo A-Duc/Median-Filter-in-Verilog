@@ -2,7 +2,7 @@ from PIL import Image
 import os
 
 # Cấu hình tên file
-txt_filename = 'input_img.txt'          # File text chứa dữ liệu hex
+txt_filename = 'output_img.txt'          # File text chứa dữ liệu hex
 original_img_filename = 'baitap1_nhieu.bmp' # Ảnh gốc (để lấy kích thước)
 output_filename = 'reconstructed_output.bmp' # Tên file ảnh đầu ra
 
