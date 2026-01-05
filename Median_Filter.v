@@ -5,6 +5,7 @@ module Median_Filter();
 
     parameter WIDTH  = 430;
     parameter HEIGHT = 554;
+    parameter TOTAL_PIXELS = WIDTH * HEIGHT;
 
     wire        done;
     wire [7:0]  median_pixel;
@@ -16,7 +17,9 @@ module Median_Filter();
 
     integer x, y; 
     integer output_file;
-    reg  [7:0]  img_data [0:HEIGHT*WIDTH-1];
+
+    reg  [7:0]  i_img [0:TOTAL_PIXELS-1];
+    reg  [7:0]  o_img [0:TOTAL_PIXELS-1];
     
     Median_Finder_9inputs_8bits utt(
         .median_pixel(median_pixel),
@@ -39,7 +42,7 @@ module Median_Filter();
             if (c < 0 || c >= WIDTH || r < 0 || r >= HEIGHT)
                 Get_Pixel = 8'd0; 
             else
-                Get_Pixel = img_data[r * WIDTH + c];
+                Get_Pixel = i_img[r * WIDTH + c];
         end
     endfunction
 
@@ -49,7 +52,7 @@ module Median_Filter();
         pixel3 = 0; pixel4 = 0; pixel5 = 0;
         pixel6 = 0; pixel7 = 0; pixel8 = 0;
 
-        $readmemh("input_img.txt", img_data);
+        $readmemh("input_img.txt", i_img);
         output_file = $fopen("output_img.txt", "w");
 
         if (output_file == 0) begin
@@ -59,7 +62,12 @@ module Median_Filter();
 
         #20;
         reset = 0;
-        #20;
+        
+
+        #20
+        @(negedge clk)
+        start = 1;
+        
 
         for (x = 0; x < HEIGHT; x = x + 1) begin
             for (y = 0; y < WIDTH; y = y + 1) begin
@@ -76,20 +84,21 @@ module Median_Filter();
                 pixel7 = Get_Pixel(x+1, y  );
                 pixel8 = Get_Pixel(x+1, y+1);
 
-                start = 1;
                 @(posedge clk);
             end
         end
-        
+
+        @(negedge clk); 
         start = 0;
-        #100; 
+        
+        #200; 
         
         $fclose(output_file);
         $finish;
     end
 
-    always @(posedge clk) begin
-        if (done && !reset) begin
+    always @(negedge clk) begin
+        if (done) begin
             $fwrite(output_file, "%02x\n", median_pixel);
         end
     end

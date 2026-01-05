@@ -4,7 +4,7 @@ import os
 # Cấu hình tên file
 txt_filename = 'output_img.txt'          # File text chứa dữ liệu hex
 original_img_filename = 'baitap1_nhieu.bmp' # Ảnh gốc (để lấy kích thước)
-output_filename = 'reconstructed_output.bmp' # Tên file ảnh đầu ra
+output_filename = 'Output_using_Verilog.bmp' # Tên file ảnh đầu ra
 
 def convert_txt_back_to_img():
     try:

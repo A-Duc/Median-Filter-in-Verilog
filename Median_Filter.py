@@ -37,7 +37,7 @@ def main():
     removed_noise = removed_noise.astype(numpy.uint8)
     
     img = Image.fromarray(removed_noise)
-    img.save("Test.bmp")
+    img.save("Output_using_Python.bmp")
     print("Đã lưu ảnh: Test.bmp")
 
 
