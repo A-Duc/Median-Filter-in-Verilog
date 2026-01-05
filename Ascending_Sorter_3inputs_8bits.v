@@ -1,5 +1,4 @@
 module Ascending_Sorter_3inputs_8bits(
-    output reg        done,
     output reg  [7:0] min, mid, max, 
     input  wire [7:0] in0, in1, in2,
     input  wire       enable,
@@ -16,7 +15,6 @@ module Ascending_Sorter_3inputs_8bits(
             min <= 0;
             mid <= 0; 
             max <= 0;
-            done <= 0;
             rin0 <= 0; 
             rin1 <= 0; 
             rin2 <= 0;
@@ -37,7 +35,6 @@ module Ascending_Sorter_3inputs_8bits(
             end
 
             prev_enable <= enable;
-            done <= prev_enable;
             if (prev_enable) begin
                 case ({cmp0, cmp1, cmp2})
                     3'b110: begin min <= rin0;
