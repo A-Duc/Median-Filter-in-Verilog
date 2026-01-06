@@ -1,2 +1,3 @@
 build/
 Quartus_Simulation/
+*.vcd
