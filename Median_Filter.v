@@ -40,13 +40,17 @@ module Median_Filter();
 
         begin
             if (c < 0 || c >= WIDTH || r < 0 || r >= HEIGHT)
-                Get_Pixel = 8'd0; 
+                Get_Pixel = 8'b00000000; 
             else
                 Get_Pixel = i_img[r * WIDTH + c];
         end
     endfunction
 
     initial begin
+        // Tạo waveform file để quan sát
+        $dumpfile("Median_Filter.vcd");
+        $dumpvars(0, Median_Filter);
+        
         clk = 0; start = 0; reset = 1;   
         pixel0 = 0; pixel1 = 0; pixel2 = 0;
         pixel3 = 0; pixel4 = 0; pixel5 = 0;
@@ -67,7 +71,7 @@ module Median_Filter();
         #20
         @(negedge clk)
         start = 1;
-        
+        #5
 
         for (x = 0; x < HEIGHT; x = x + 1) begin
             for (y = 0; y < WIDTH; y = y + 1) begin
@@ -87,8 +91,6 @@ module Median_Filter();
                 @(posedge clk);
             end
         end
-
-        @(negedge clk); 
         start = 0;
         
         #200; 

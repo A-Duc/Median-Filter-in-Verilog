@@ -1,4 +1,4 @@
-//`include "Ascending_Sorter_3inputs_8bits.v"
+`include "Ascending_Sorter_3inputs_8bits.v"
 
 module Median_Finder_9inputs_8bits(
     output wire  [7:0] median_pixel,
@@ -26,6 +26,8 @@ module Median_Finder_9inputs_8bits(
     wire en_stage0 = start;
     wire en_stage1 = pipe_ctrl[1];
     wire en_stage2 = pipe_ctrl[3];
+
+
     assign done = pipe_ctrl[5];
 
 
