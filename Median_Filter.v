@@ -47,10 +47,6 @@ module Median_Filter();
     endfunction
 
     initial begin
-        // Tạo waveform file để quan sát
-        $dumpfile("Median_Filter.vcd");
-        $dumpvars(0, Median_Filter);
-        
         clk = 0; start = 0; reset = 1;   
         pixel0 = 0; pixel1 = 0; pixel2 = 0;
         pixel3 = 0; pixel4 = 0; pixel5 = 0;
