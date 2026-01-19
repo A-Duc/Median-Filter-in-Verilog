@@ -1,4 +1,4 @@
-//`include "Ascending_Sorter_3inputs_8bits.v"
+`include "Ascending_Sorter_3inputs_8bits.v"
 
 module Median_Finder_9inputs_8bits(
     output wire  [7:0] median_pixel,

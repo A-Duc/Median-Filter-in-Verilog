@@ -17,6 +17,7 @@ module Median_Filter();
 
     integer x, y; 
     integer output_file;
+    reg processing;
 
     reg  [7:0]  i_img [0:TOTAL_PIXELS-1];
     reg  [7:0]  o_img [0:TOTAL_PIXELS-1];
@@ -51,6 +52,7 @@ module Median_Filter();
         pixel0 = 0; pixel1 = 0; pixel2 = 0;
         pixel3 = 0; pixel4 = 0; pixel5 = 0;
         pixel6 = 0; pixel7 = 0; pixel8 = 0;
+        x = 0; y = 0; processing = 0;
 
         $readmemh("input_img.txt", i_img);
         output_file = $fopen("output_img.txt", "w");
@@ -67,11 +69,18 @@ module Median_Filter();
         #20
         @(negedge clk)
         start = 1;
+        processing = 1;
         #5
+        
+        #(TOTAL_PIXELS * 10 + 500); 
+        
+        $fclose(output_file);
+        $finish;
+    end
 
-        for (x = 0; x < HEIGHT; x = x + 1) begin
-            for (y = 0; y < WIDTH; y = y + 1) begin
-                
+    always @(posedge clk) begin
+        if (processing) begin
+            if (x < HEIGHT) begin
                 pixel0 = Get_Pixel(x-1, y-1);
                 pixel1 = Get_Pixel(x-1, y  );
                 pixel2 = Get_Pixel(x-1, y+1);
@@ -84,15 +93,17 @@ module Median_Filter();
                 pixel7 = Get_Pixel(x+1, y  );
                 pixel8 = Get_Pixel(x+1, y+1);
 
-                @(posedge clk);
+                y = y + 1;
+                if (y >= WIDTH) begin
+                    y = 0;
+                    x = x + 1;
+                end
+            end
+            else begin
+                start = 0;
+                processing = 0;
             end
         end
-        start = 0;
-        
-        #200; 
-        
-        $fclose(output_file);
-        $finish;
     end
 
     always @(negedge clk) begin
